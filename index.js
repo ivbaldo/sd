@@ -1,13 +1,15 @@
 'use strict'
 
-const { response } = require('express');
+const port = process.env.PORT || 8888;
+
 const express = require('express');
 const app = express();
 
-app.get('/hola', (request, response) => {
-    response.send('hola a todas y todos desde Express')
-})
+app.get('/hola/:unNombre', (req, res) => {
+    res.status(200).send({mensaje: `Hola ${req.params.unNombre} desde SD!`});
 
-app.listen(8080, () => {
-    console.log('API REST ejecutandose en http://localhost:8080/hola')
+});
+
+app.listen(port, () => {
+    console.log(`API REST ejecutandose en http//localhost:${port}/hola/:unNombre`);
 });
