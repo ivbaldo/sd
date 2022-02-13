@@ -3,7 +3,7 @@ var server = http.createServer();
 
 function HTTP_Response(request, response ) {
     response.writeHead(200,{'Content-Type': 'text/plain'});
-    response.write{'Hola a todas y todos!\n'};
+    response.write('Hola a todas y todos!\n');
     response.end();
 }
 
