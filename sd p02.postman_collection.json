@@ -6,39 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/api/products/987654321",
+			"name": "api/familia",
 			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Host",
-						"value": "<calculated when request is sent>",
-						"type": "text"
-					},
-					{
-						"key": "User-Agent",
-						"value": "PostmanRuntime/7.26.5",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "*/*",
-						"type": "text"
-					},
-					{
-						"key": "Accept-Encoding",
-						"value": "gzip, deflate, br",
-						"type": "text"
-					},
-					{
-						"key": "Connection",
-						"value": "keep-alive",
-						"type": "text"
-					}
-				],
+				"method": "POST",
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Boligrafo premium\",\n    \"comentarios\": \"Es un buen producto\"\n}",
+					"raw": "{\n    \"tipo\": \"Hermano\",\n    \"nombre\": \"Pepe\",\n    \"edad\": 46\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -46,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/products/987654321",
+					"raw": "http://localhost:3000/api/familia",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -54,8 +28,174 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"products",
-						"987654321"
+						"familia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"1211324123123asdasd123123\",\n    \"tipo\": \"perro\",\n    \"raza\": \"Galgo\",\n    \"nombre\": \"Antonio\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/familia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/familia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tipo\": \"Mamut\",\n    \"raza\": \"t-rex\",\n    \"nombre\": \"Colmillos\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas/622134211e5167225e153ecb",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": \"marron\",\n    \"nombre\": \"Nica\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas",
+						"622134211e5167225e153ecb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
 					]
 				}
 			},
