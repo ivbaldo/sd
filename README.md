@@ -22,6 +22,8 @@ Para evitar tener que reiniciar nuestra aplicación cada vez que haya un cambio 
 
 Es importante saber qué está pasando en cada momento en nuestro servidor cuando desarollamos. Por lo que vamos a instalar Morgan, un motor de registro.
 
+Por último necesitamos instalar una base de datos, MongoDB, una base de datos no estructurada.
+
 ```
 Proporciona un ejemplo
 ```
@@ -188,7 +190,8 @@ Para ejecutar las pruebas es necesario importar el archivo crud.postman_collecti
 
 ## Construido con 🛠️
 
-
++ NodeJs
++ VSCode
 
 ## Contribuyendo 🖇️
 
@@ -203,7 +206,7 @@ Para ejecutar las pruebas es necesario importar el archivo crud.postman_collecti
 
 
 * **Paco Maciá** - *Trabajo Inicial* - [pmacia](https://github.com/pmacia)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Iván Baldó** - *Documentación* - [ivbaldo](https://github.com/ivbaldo)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quiénes han participado en este proyecto. 
 
