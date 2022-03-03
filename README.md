@@ -4,14 +4,11 @@ _Ejemplo de WS REST con NodeJS que proporciona un API CRUD para gestionar una DB
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
 Ver **Deployment** para conocer cómo desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
-
-_Qué cosas necesitas para instalar el software y cómo instalarlas_
 
 Para la realización de esta práctica necesitaremos tener instalados una máquina virtual o una partición con la última versión estable de Ubuntu, en este caso, la versión 20.04.
 
@@ -173,6 +170,9 @@ $ cd node/sd/api-rest
 $ npm i -S mongodb
 $ npm i -S mongojs
 ```
+## Ejecutando las pruebas ⚙️
+
+Para ejecutar las pruebas es necesario importar el archivo crud.postman_collection.json en Postman y ejecutar los ejemplos que encontramos en la colección.
 
 ### Analice las pruebas end-to-end 🔩
 
