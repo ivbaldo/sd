@@ -10,35 +10,10 @@ Ver **Deployment** para conocer cómo desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
-Para la realización de esta práctica necesitaremos tener instalados una máquina virtual o una partición con la última versión estable de Ubuntu, en este caso, la versión 20.04.
-
-Una vez instalado Ubuntu 20.04 instalaremos un un editor de texto, en mi caso Visual Studio Code, y Postman.
-
-También necesitaremos instalar NodeJs y un gestor de reporsitorios, git.
-
-A NodeJs le debemos añadir la biblioteca Express para facilitarnos la gestión de métodos y recursos HTTP.
-
-Para evitar tener que reiniciar nuestra aplicación cada vez que haya un cambio en el código necesitamos instalar el gestor de proyectos Nodemon.
-
-Es importante saber qué está pasando en cada momento en nuestro servidor cuando desarollamos. Por lo que vamos a instalar Morgan, un motor de registro.
-
-Por último necesitamos instalar una base de datos, MongoDB, una base de datos no estructurada.
-
-```
-Proporciona un ejemplo
-```
-
-### Instalación 🔧
-
-+ #### Instalación de Visual Studio Code y Postman:
-```bush
-$ sudo snap install --classic code
-$ sudo snap install postman
-```
+Para la ejecución de la aplicación necesitamos instalar NodeJs y una base de datos no estructurada, MongoDB.
 
 + #### Instalación de NodeJS
 
-Ahora instalamos la última versión de NodeJS.
 Primero instalamos el gestor de paquetes de Node (npm):
 ```bush
 $ sudo apt update
@@ -57,78 +32,9 @@ V16.13.2
 $ npm -v
 8.1.2
 ```
-+ #### Instalación del repositorio
-
-Instalación y configuración de git:
-```bush
-$ sudo apt install git
-$ git config --global user.name ivbaldo
-$ git config --global user.email ivanbaldo1994@gmail.com
-$ git config --list
-user.name=ivbaldo
-user.email=ivanbaldo1994@gmail.com
-```
-Creamos ahora el repositorio:
-```bush
-$ cd
-$ mkdir node
-$ cd node
-```
-En mi caso he utilizado Github:
-```bush
-$ git clone https://github.com/ivbaldo/sd.git api-rest
-cd api-rest
-```
-Conectamos el repositorio remoto y le asignamos un nombre (origing):
-```bush
-$ git remote -v
-$ git remote add origin https://github.com/ivbaldo/sd.git
-```
-Por último debemos sincronizar el repositorio local con el remoto:
-```bush
-$ git status //Comprobamos el estado
-```
-Y si hay algo en el repositorio remoto(origin), lo traemos:
-```bush
-$ git fetch origing         //Traemos el repositorio
-$ git remote show origin    //Obtenemos información
-$ git status                //Obtenemos información
-$ git pull origin master    //Los combinamos
-```
- 
-+ #### Instalación de Express
-```bush
-$ npm i -S express
-```
-El comando anterior crea una carpeta node_modules dentro del proyecto. 
-Con la opción -S hemos forzado a que se registre una entrada en el archivo package.json. Esta entrada facilita la instalación de modulos que el proyecto puede puede llegar a necesitar en un futuro.
-```json
-"dependencies": {
-    "express": "^4.17.2",
-}
-```
-    
-+ #### Instalación de Nodemon
-```bush
-$ cd node/sd/api-rest
-$ npm i -D nodemon
-```
-Se crea en el archivo package.json en la sección devDependencies siguiente:
-```json
-"devDependencies": {
-    "nodemon": "^2.0.15"
-}
-```
-+ #### Instalación de Morgan
-
-```bush
-npm i -S morgan
-```
-    
-
 + #### Instalacion de MongoDB
 
-Instalamos la base de datos no estructurada en Ubuntu 20.04.
+Instalamos la base de datos no estructurada.
 
 Instalamos Mongo:
 ```bush    
@@ -172,8 +78,78 @@ $ cd node/sd/api-rest
 $ npm i -S mongodb
 $ npm i -S mongojs
 ```
+
+### Instalación 🔧
+
++ #### Instalación del repositorio
+
+Instalación y configuración de git:
+```bush
+$ sudo apt install git
+$ git config --global user.name ivbaldo
+$ git config --global user.email ivanbaldo1994@gmail.com
+$ git config --list
+user.name=ivbaldo
+user.email=ivanbaldo1994@gmail.com
+```
+Creamos ahora el repositorio:
+```bush
+$ cd
+$ mkdir node
+$ cd node
+```
+En mi caso he utilizado Github:
+```bush
+$ git clone https://github.com/ivbaldo/sd.git api-rest
+cd api-rest
+```
+Conectamos el repositorio remoto y le asignamos un nombre (origing):
+```bush
+$ git remote -v
+$ git remote add origin https://github.com/ivbaldo/sd.git
+```
+Por último debemos sincronizar el repositorio local con el remoto:
+```bush
+$ git status //Comprobamos el estado
+```
+Y traemos lo que hay en el reporsitorio:
+```bush
+$ git fetch origing         //Traemos el repositorio
+$ git remote show origin    //Obtenemos información
+$ git status                //Obtenemos información
+$ git pull origin master    //Los combinamos
+```
++ #### Instalación de los módulos
+
+Necesitamos entrar en la carpeta del proyecto:
+```bush
+$ cd node/
+$ cd sd/api-rest
+```
+E instalamos todos los módulos:
+```bush
+$ npm i
+```
+
 ## Ejecutando las pruebas ⚙️
 
+Activamos la base de datos en una terminal:
+```bush
+$ sudo systemctl start mongodb
+```
+Abrimos otra terminal y ejecutamos el programa:
+```bush
+<Ctrl+Alt+T>
+$ cd node/
+$ cd sd/api-rest
+$ npm start
+```
+
+También podemos abrir el cliente de mongo para la gestión de la base de datos en otra terminal:
+```bush
+<Ctrl+Alt+T>
+$ mongo --host localhost:27017
+```
 Para ejecutar las pruebas es necesario importar el archivo crud.postman_collection.json en Postman y ejecutar los ejemplos que encontramos en la colección.
 
 ### Analice las pruebas end-to-end 🔩
@@ -191,6 +167,7 @@ Para ejecutar las pruebas es necesario importar el archivo crud.postman_collecti
 ## Construido con 🛠️
 
 + NodeJs
++ MongoDB
 + VSCode
 
 ## Contribuyendo 🖇️
