@@ -81,43 +81,18 @@ $ npm i -S mongojs
 
 ### Instalación 🔧
 
-+ #### Instalación del repositorio
++ #### Conectarse al repositorio
 
-Instalación y configuración de git:
-```bush
-$ sudo apt install git
-$ git config --global user.name ivbaldo
-$ git config --global user.email ivanbaldo1994@gmail.com
-$ git config --list
-user.name=ivbaldo
-user.email=ivanbaldo1994@gmail.com
-```
-Creamos ahora el repositorio:
+Creamos una carpeta donde clonar el proyecto:
 ```bush
 $ cd
 $ mkdir node
 $ cd node
 ```
-En mi caso he utilizado Github:
+Clonamos el proyecto:
 ```bush
 $ git clone https://github.com/ivbaldo/sd.git api-rest
 cd api-rest
-```
-Conectamos el repositorio remoto y le asignamos un nombre (origing):
-```bush
-$ git remote -v
-$ git remote add origin https://github.com/ivbaldo/sd.git
-```
-Por último debemos sincronizar el repositorio local con el remoto:
-```bush
-$ git status //Comprobamos el estado
-```
-Y traemos lo que hay en el reporsitorio:
-```bush
-$ git fetch origing         //Traemos el repositorio
-$ git remote show origin    //Obtenemos información
-$ git status                //Obtenemos información
-$ git pull origin master    //Los combinamos
 ```
 + #### Instalación de los módulos
 
