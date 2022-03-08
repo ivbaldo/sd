@@ -200,6 +200,129 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "api/mascotas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/mascotas token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/mascotas/1211324123123asdasd1231232 notoken",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas/1211324123123asdasd1231232",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas",
+						"1211324123123asdasd1231232"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb token",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mascotas",
+						"622134211e5167225e153ecb"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
