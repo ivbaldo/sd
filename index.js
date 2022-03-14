@@ -14,6 +14,8 @@ const logger = require('morgan');
 const cors = require('cors');
 const mongojs = require('mongojs');//importamos la base de datos mongojs
 
+//Declaracion helmet
+var helmet = require('helmet');
 const app = express();
 
 var db = mongojs("SD"); //Conectamos con la db SD
@@ -46,6 +48,8 @@ app.use(express.json())
  //cors middlewares
 app.use(allowCrossTokenHeader);
 app.use(allowCrossTokenOrigin);
+//helmet middleware
+app.use(helmet());
 
 //añadimos un tigger previo a las rutas para dar soporte a multiples colecciones
 app.param("coleccion", (req, res, next, coleccion) => {
