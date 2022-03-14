@@ -1,10 +1,19 @@
 'use strict'
 const port = process.env.PORT || 3000;
 
+const https = require('https');
+const fs = require('fs');
+
+const OPTIONS_HTTPS = {
+    key: fs.readFileSync('./cert/key.pem'),
+    cert: fs.readFileSync('./cert/cert.pem')
+};
+
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const mongojs = require('mongojs');//importamos la base de datos mongojs
+
 const app = express();
 
 var db = mongojs("SD"); //Conectamos con la db SD
@@ -19,6 +28,8 @@ var allowCrossTokenOrigin = (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "token");
     return next();
 };
+
+
 
 //Para autorizar las req
 var auth = (req, res, next) => {
@@ -106,6 +117,12 @@ app.delete('/api/:coleccion/:id', auth,(req,res,next) => {
     });
 });
 
+https.createServer(OPTIONS_HTTPS, app).listen(port, () => {
+    console.log(`sEC WS API REST ejecutandose en https://localhost:${port}/api/:coleccion/:id`)
+});
+
+
+/*
 app.listen(port, () => {
     console.log(`API REST ejecutandose en http://localhost:${port}/api/:coleccion/:id`)
-});
+});*/
