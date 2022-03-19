@@ -27,7 +27,7 @@ var allowCrossTokenHeader = (req, res, next) => {
 }
 
 var allowCrossTokenOrigin = (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "token");
+    res.header("Access-Control-Allow-Origin", "*");
     return next();
 };
 
@@ -41,13 +41,18 @@ var auth = (req, res, next) => {
         return next(new Error("No autorizado"));
     }
 };
+
+
 // Declaramos los middleware
 app.use(logger('dev')); // probar con: tiny, short, dev, common, combined
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
- //cors middlewares
+
+//cors middlewares
+app.use(cors());
 app.use(allowCrossTokenHeader);
 app.use(allowCrossTokenOrigin);
+
 //helmet middleware
 app.use(helmet());
 

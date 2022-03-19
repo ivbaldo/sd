@@ -1,76 +1,18 @@
 {
 	"info": {
-		"_postman_id": "8bc2aaf9-3c07-44c5-963c-c64c1b02f9c1",
-		"name": "sd p02",
+		"_postman_id": "5f7a5d55-b57e-4605-ac5d-48d96bc1dc8c",
+		"name": "colecciones",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "api/familia",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"tipo\": \"Hermano\",\n    \"nombre\": \"Pepe\",\n    \"edad\": 46\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/familia",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"familia"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api/mascotas",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"_id\": \"1211324123123asdasd123123\",\n    \"tipo\": \"perro\",\n    \"raza\": \"Galgo\",\n    \"nombre\": \"Antonio\"\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"mascotas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api",
+			"name": "{colecciones}",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api",
-					"protocol": "http",
+					"raw": "https://localhost:3000/api",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -83,33 +25,13 @@
 			"response": []
 		},
 		{
-			"name": "api/familia",
+			"name": "{coleccion}",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/familia",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"familia"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api/mascotas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
+					"raw": "https://localhost:3000/api/mascotas",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -123,10 +45,42 @@
 			"response": []
 		},
 		{
-			"name": "api/mascotas",
+			"name": "{coleccion}/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3000/api/familia/62212ceb1e5167225e153eca",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"familia",
+						"62212ceb1e5167225e153eca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{coleccion}",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"tipo\": \"Mamut\",\n    \"raza\": \"t-rex\",\n    \"nombre\": \"Colmillos\"\n}",
@@ -137,8 +91,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
+					"raw": "https://localhost:3000/api/mascotas",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -152,10 +106,21 @@
 			"response": []
 		},
 		{
-			"name": "api/mascotas/622134211e5167225e153ecb",
+			"name": "{coleccion}/{id}",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "password1234",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"color\": \"marron\",\n    \"nombre\": \"Nica\"\n}",
@@ -166,8 +131,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb",
-					"protocol": "http",
+					"raw": "https://localhost:3000/api/mascotas/6235ba394d56da0cef9b5b2a",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -175,150 +140,41 @@
 					"path": [
 						"api",
 						"mascotas",
-						"622134211e5167225e153ecb"
+						"6235ba394d56da0cef9b5b2a"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "api/mascotas",
+			"name": "{coleccion}/{id}",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"mascotas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api/mascotas",
-			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
+						"key": "token",
+						"value": "password1234",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
+					"raw": "https://localhost:3000/api/mascotas/6235ba394d56da0cef9b5b2a",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"mascotas"
+						"mascotas",
+						"6235ba394d56da0cef9b5b2a"
 					],
 					"query": [
 						{
-							"key": "Content-Type",
-							"value": "application/json",
+							"key": "",
+							"value": "",
 							"disabled": true
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/mascotas token",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "token",
-						"value": "password1234",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"mascotas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "api/mascotas/1211324123123asdasd1231232 notoken",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas/1211324123123asdasd1231232",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"mascotas",
-						"1211324123123asdasd1231232"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb token",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "token",
-						"value": "password1234",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/api/mascotas/622134211e5167225e153ecb",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"mascotas",
-						"622134211e5167225e153ecb"
 					]
 				}
 			},
