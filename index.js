@@ -13,7 +13,7 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const mongojs = require('mongojs');//importamos la base de datos mongojs
-
+const TOKEN_SERVICE = require('/home/sd/api-auth-reg/auth-test/services/token_service');
 //Declaracion helmet
 var helmet = require('helmet');
 const app = express();
@@ -22,7 +22,7 @@ var db = mongojs("SD"); //Conectamos con la db SD
 var id = mongojs.ObjectId; //Funcion para convertir un id textual en un objetId
 //Declaraciones cors
 var allowCrossTokenHeader = (req, res, next) => {
-    res.header("Access-Control-Allow-Headers", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "*");
     return next();
 }
 
@@ -35,11 +35,24 @@ var allowCrossTokenOrigin = (req, res, next) => {
 
 //Para autorizar las req
 var auth = (req, res, next) => {
-    if(req.headers.token === "password1234"){
+    const jwt = req.headers.authorization.split(' ')[1];
+    TOKEN_SERVICE.decodificaToken(jwt)
+    .then(userId => {
+        req.user = {
+            id: userId,
+            token: jwt
+        }
         return next();
-    }else{
-        return next(new Error("No autorizado"));
-    }
+
+    })
+    .catch( err => {
+        res.status(400).json({
+            result: "KO",
+            error: 'Token error',
+            description: 'Error al decodificar el token'
+        });
+    });
+
 };
 
 
@@ -66,7 +79,7 @@ app.param("coleccion", (req, res, next, coleccion) => {
 });
 
 //rutas
-app.get('/api', (req,res,next) => {
+app.get('/api', auth,(req,res,next) => {
     console.log('GET /api');
     console.log(req.params);
     console.log(req.collection);
@@ -77,27 +90,28 @@ app.get('/api', (req,res,next) => {
     });
 });
 
-app.get('/api/:coleccion',(req,res,next) => {
+app.get('/api/:coleccion',auth,(req,res,next) => {
+    console.log("Entro en api-rest");
     req.collection.find((err,coleccion) => {
         if(err) return next(err);
         res.json(coleccion);
     });
 });
 
-app.get('/api/:coleccion/:id', (req, res, next) => {
+app.get('/api/:coleccion/:id', auth,(req, res, next) => {
     req.collection.findOne({_id: id(req.params.id)}, (err,elemento) => {
         if(err) return next(err);
         res.json(elemento);
     });
 });
 
-app.post('/api/:coleccion', auth, (req,res,next) => {
+app.post('/api/:coleccion', auth,(req,res,next) => {
     const elemento = req.body;
 
-    if(!elemento.nombre){
+    if(!elemento.title || !elemento.estado){
         res.status(400).json ({
             error:'Bad data',
-            description: 'Se precisa al menos un campo <nombre>'
+            description: 'Se precisa al menos un campo <title> y <estado>'
         });
     }else{
         req.collection.save(elemento, (err,coleccionGuardada) => {
@@ -107,7 +121,7 @@ app.post('/api/:coleccion', auth, (req,res,next) => {
     }
 });
 
-app.put('/api/:coleccion/:id', auth, (req, res, next) => {
+app.put('/api/:coleccion/:id', auth,(req, res, next) => {
     let elementoId = req.params.id;
     let elementoNuevo = req.body;
     req.collection.update({_id: id(elementoId)},
@@ -117,7 +131,7 @@ app.put('/api/:coleccion/:id', auth, (req, res, next) => {
     });
 });
 
-app.delete('/api/:coleccion/:id', auth,(req,res,next) => {
+app.delete('/api/:coleccion/:id',auth,(req,res,next) => {
     let elementoId = req.params.id;
 
     req.collection.remove({_id: id(elementoId)}, (err,resultado) => {
