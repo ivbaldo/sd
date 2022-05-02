@@ -107,8 +107,9 @@ app.get('/api/:coleccion/:id', auth,(req, res, next) => {
 
 app.post('/api/:coleccion', auth,(req,res,next) => {
     const elemento = req.body;
+    console.log(elemento);
 
-    if(!elemento.title || !elemento.estado){
+    if(!elemento.title || elemento.isDone === null){
         res.status(400).json ({
             error:'Bad data',
             description: 'Se precisa al menos un campo <title> y <estado>'
